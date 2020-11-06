@@ -3,7 +3,7 @@ import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
 import React, { useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-import { AndroidImportance, AndroidNotificationVisibility, NotificationChannel, NotificationChannelInput } from 'expo-notifications';
+import { AndroidImportance, AndroidNotificationVisibility, NotificationChannel, NotificationChannelInput, NotificationContentInput } from 'expo-notifications';
 import { downloadToFolder } from 'expo-file-dl';
 
 Notifications.setNotificationHandler({
@@ -41,6 +41,8 @@ export default function App() {
     setNotificationChannel();
   });
 
+  // IMPORTANT: You MUST attain CAMERA_ROLL permissions for the file download to succeed
+  // If you don't the downloads will fail
   async function getCameraRollPermissions() {
     await Permissions.askAsync(Permissions.CAMERA_ROLL);
   }
@@ -64,6 +66,26 @@ export default function App() {
         style={{width: '80%'}}
       />
       <Button title='Download' onPress={async () => {
+        // You can also call downloadToFolder with custom notification content, or without any notifications sent at all
+
+        // ***************************
+        // custom notification content
+        // ***************************
+        // const customNotifInput: {downloading: NotificationContentInput, finished: NotificationContentInput, error: NotificationContentInput} = {
+        //   downloading: { title: "Custom title 1", body: 'Custom body 1', color: '#06004a' },
+        //   finished: { title: "Custom title 2", body: 'Custom body 2', color: '#004a00' },
+        //   error: { title: "Custom title 3", body: 'Custom body 3', color: '#810002' }
+        // };
+        // await downloadToFolder(uri, filename, "Download", channelId, { notification: "custom" }, customNotifInput);
+
+        // ****************
+        // no notifications
+        // ****************        
+        // await downloadToFolder(uri, filename, "Download", channelId, { notification: "none" });
+
+        // *******
+        // default
+        // *******
         await downloadToFolder(uri, filename, "Download", channelId);
       }}
       />
