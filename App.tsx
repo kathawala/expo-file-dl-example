@@ -80,7 +80,7 @@ export default function App() {
 
         // ****************
         // no notifications
-        // ****************        
+        // ****************
         // await downloadToFolder(uri, filename, "Download", channelId, { notification: "none" });
 
         // *******
