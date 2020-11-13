@@ -1,10 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * Generated with the TypeScript template
+ * https://github.com/react-native-community/react-native-template-typescript
+ *
+ * @format
+ */
+
+import React, {useEffect, useState} from 'react';
+import {StyleSheet, View, TextInput, Button, StatusBar} from 'react-native';
 import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
-import React, { useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
-import { AndroidImportance, AndroidNotificationVisibility, NotificationChannel, NotificationChannelInput, NotificationContentInput } from 'expo-notifications';
-import { downloadToFolder } from 'expo-file-dl';
+import {
+  AndroidImportance,
+  AndroidNotificationVisibility,
+  NotificationChannel,
+  NotificationChannelInput,
+  NotificationContentInput,
+} from 'expo-notifications';
+import {downloadToFolder} from 'expo-file-dl';
+
+declare const global: {HermesInternal: null | {}};
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -14,14 +31,16 @@ Notifications.setNotificationHandler({
   }),
 });
 
-const channelId = "DownloadInfo"
+const channelId = 'DownloadInfo';
 
-export default function App() {
-  const [uri, setUri] = useState("");
-  const [filename, setFilename] = useState("");
+const App = () => {
+  const [uri, setUri] = useState('');
+  const [filename, setFilename] = useState('');
 
   async function setNotificationChannel() {
-    const loadingChannel: NotificationChannel | null = await Notifications.getNotificationChannelAsync(channelId);
+    const loadingChannel: NotificationChannel | null = await Notifications.getNotificationChannelAsync(
+      channelId,
+    );
 
     // if we didn't find a notification channel set how we like it, then we create one
     if (loadingChannel == null) {
@@ -31,9 +50,12 @@ export default function App() {
         lockscreenVisibility: AndroidNotificationVisibility.PUBLIC,
         sound: 'default',
         vibrationPattern: [250],
-        enableVibrate: true
+        enableVibrate: true,
       };
-      await Notifications.setNotificationChannelAsync(channelId, channelOptions);
+      await Notifications.setNotificationChannelAsync(
+        channelId,
+        channelOptions,
+      );
     }
   }
 
@@ -52,46 +74,48 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar barStyle="dark-content" />
       <TextInput
         value={uri}
         placeholder="http://www.example.com/image.jpg"
-        onChangeText={(uri) => setUri(uri)}
-        style={{width: '80%'}}
+        onChangeText={(val) => setUri(val)}
+        style={styles.width80}
       />
       <TextInput
         value={filename}
         placeholder="image.jpg"
-        onChangeText={(filename) => setFilename(filename)}
-        style={{width: '80%'}}
+        onChangeText={(val) => setFilename(val)}
+        style={styles.width80}
       />
-      <Button title='Download' onPress={async () => {
-        // You can also call downloadToFolder with custom notification content, or without any notifications sent at all
+      <Button
+        title="Download"
+        onPress={async () => {
+          // You can also call downloadToFolder with custom notification content, or without any notifications sent at all
 
-        // ***************************
-        // custom notification content
-        // ***************************
-        // const customNotifInput: {downloading: NotificationContentInput, finished: NotificationContentInput, error: NotificationContentInput} = {
-        //   downloading: { title: "Custom title 1", body: 'Custom body 1', color: '#06004a' },
-        //   finished: { title: "Custom title 2", body: 'Custom body 2', color: '#004a00' },
-        //   error: { title: "Custom title 3", body: 'Custom body 3', color: '#810002' }
-        // };
-        // await downloadToFolder(uri, filename, "Download", channelId, { notification: "custom" }, customNotifInput);
+          // ***************************
+          // custom notification content
+          // ***************************
+          // const customNotifInput: {downloading: NotificationContentInput, finished: NotificationContentInput, error: NotificationContentInput} = {
+          //   downloading: { title: "Custom title 1", body: 'Custom body 1', color: '#06004a' },
+          //   finished: { title: "Custom title 2", body: 'Custom body 2', color: '#004a00' },
+          //   error: { title: "Custom title 3", body: 'Custom body 3', color: '#810002' }
+          // };
+          // await downloadToFolder(uri, filename, "Download", channelId, { notification: "custom" }, customNotifInput);
 
-        // ****************
-        // no notifications
-        // ****************
-        // await downloadToFolder(uri, filename, "Download", channelId, { notification: "none" });
+          // ****************
+          // no notifications
+          // ****************
+          // await downloadToFolder(uri, filename, "Download", channelId, { notification: "none" });
 
-        // *******
-        // default
-        // *******
-        await downloadToFolder(uri, filename, "Download", channelId);
-      }}
+          // *******
+          // default
+          // *******
+          await downloadToFolder(uri, filename, 'Download', channelId);
+        }}
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -100,4 +124,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  width80: {
+    width: '80%',
+  },
 });
+
+export default App;
