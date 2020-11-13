@@ -1,8 +1,17 @@
-import { StatusBar } from "expo-status-bar";
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ *
+ * Generated with the TypeScript template
+ * https://github.com/react-native-community/react-native-template-typescript
+ *
+ * @format
+ */
+
+import React, { useEffect, useState } from "react";
+import { StyleSheet, View, TextInput, Button, StatusBar } from "react-native";
 import * as Notifications from "expo-notifications";
 import * as Permissions from "expo-permissions";
-import React, { useEffect, useState } from "react";
-import { Button, StyleSheet, TextInput, View } from "react-native";
 import {
   AndroidImportance,
   AndroidNotificationVisibility,
@@ -11,6 +20,8 @@ import {
   NotificationContentInput,
 } from "expo-notifications";
 import { downloadToFolder } from "expo-file-dl";
+
+declare const global: { HermesInternal: null | {} };
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -22,7 +33,7 @@ Notifications.setNotificationHandler({
 
 const channelId = "DownloadInfo";
 
-export default function App() {
+const App = () => {
   const [uri, setUri] = useState("");
   const [filename, setFilename] = useState("");
 
@@ -75,18 +86,18 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar barStyle="dark-content" />
       <TextInput
         value={uri}
         placeholder="http://www.example.com/image.jpg"
-        onChangeText={(uri) => setUri(uri)}
-        style={{ width: "80%" }}
+        onChangeText={(val) => setUri(val)}
+        style={styles.width80}
       />
       <TextInput
         value={filename}
         placeholder="image.jpg"
-        onChangeText={(filename) => setFilename(filename)}
-        style={{ width: "80%" }}
+        onChangeText={(val) => setFilename(val)}
+        style={styles.width80}
       />
       <Button
         title="Download"
@@ -103,17 +114,10 @@ export default function App() {
           // };
           // await downloadToFolder(uri, filename, "Download", channelId, { notification: "custom" }, customNotifInput);
 
-<<<<<<< HEAD
           // ****************
           // no notifications
           // ****************
           // await downloadToFolder(uri, filename, "Download", channelId, { notification: "none" });
-=======
-        // ****************
-        // no notifications
-        // ****************
-        // await downloadToFolder(uri, filename, "Download", channelId, { notification: "none" });
->>>>>>> 95b8ed2 (Update bare app)
 
           // *******
           // default
@@ -123,7 +127,7 @@ export default function App() {
       />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -132,4 +136,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  width80: {
+    width: "80%",
+  },
 });
+
+export default App;
