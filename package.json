@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "expo-file-dl": "file:/home/farhan/expo-file-dl",
+    "expo-file-dl": "^1.0.2-bare",
     "expo-file-system": "^9.2.0",
     "expo-media-library": "^9.2.1",
     "expo-notifications": "^0.7.2",
