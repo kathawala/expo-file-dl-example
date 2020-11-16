@@ -2849,10 +2849,14 @@ expo-constants@9.2.0, expo-constants@~9.2.0:
     fbjs "1.0.0"
     uuid "^3.3.2"
 
-expo-file-dl@^1.0.2-bare:
-  version "1.0.2-bare"
-  resolved "https://registry.yarnpkg.com/expo-file-dl/-/expo-file-dl-1.0.2-bare.tgz#5afbd8ec639e9ed1e472033fc65c05e20ff714ce"
-  integrity sha512-QI3eBPacvRkkbzfo57lBwFKbMwq0dUWmDlx5RonTjnQE3PEzWjAmuOuLoqsBzZMKp7gB/wzDNng5LfCBm9RVgA==
+expo-file-dl@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/expo-file-dl/-/expo-file-dl-1.0.3.tgz#a022c5e368672ae61e5be309d88c4a5f6d464e1f"
+  integrity sha512-lGvMNS6H9dp1Ub7oRRiVOgLOxNO8pWjqzd2wcQwxN/Oti4g8W3Nm+ijuCe98QvE8/tpo6dAugcUdEUO2RsP3zw==
+  dependencies:
+    expo-file-system "^9.2.0"
+    expo-media-library "^9.2.1"
+    expo-notifications "^0.7.2"
 
 expo-file-system@^9.2.0, expo-file-system@~9.2.0:
   version "9.2.0"
