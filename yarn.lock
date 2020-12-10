@@ -2460,8 +2460,10 @@ expo-error-recovery@~1.3.0:
   dependencies:
     fbjs "1.0.0"
 
-expo-file-dl@../expo-file-dl:
-  version "1.0.1"
+expo-file-dl@1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/expo-file-dl/-/expo-file-dl-1.0.3.tgz#a022c5e368672ae61e5be309d88c4a5f6d464e1f"
+  integrity sha512-lGvMNS6H9dp1Ub7oRRiVOgLOxNO8pWjqzd2wcQwxN/Oti4g8W3Nm+ijuCe98QvE8/tpo6dAugcUdEUO2RsP3zw==
   dependencies:
     expo-file-system "^9.2.0"
     expo-media-library "^9.2.1"
@@ -2541,10 +2543,10 @@ expo-sqlite@~8.4.0:
     "@expo/websql" "^1.0.1"
     lodash "^4.17.15"
 
-expo-status-bar@~1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/expo-status-bar/-/expo-status-bar-1.0.2.tgz#2441a77c56be31597898337b0d086981f2adefd8"
-  integrity sha512-5313u744GcLzCadxIPXyTkYw77++UXv1dXCuhYDxDbtsEf93iMra7WSvzyE8a7mRQLIIPRuGnBOdrL/V1C7EOQ==
+expo-status-bar@~1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/expo-status-bar/-/expo-status-bar-1.0.3.tgz#62b4d6145680abd43ba6ecfa465f835e88bf6263"
+  integrity sha512-/Orgla1nkIrfswNHbuAOTbPVq0g3+GrhoQVk7MRafY2dwrFLgXhaPExS+eN2hpmzqPv2LG5cqAZDCQUAjmZYBQ==
 
 expo@~39.0.2:
   version "39.0.4"
