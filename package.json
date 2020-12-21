@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "expo-file-dl": "1.0.3",
+    "expo-file-dl": "^1.0.4",
     "expo-notifications": "^0.7.2",
     "react": "16.13.1",
     "react-native": "0.63.3",
