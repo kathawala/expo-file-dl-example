@@ -10,9 +10,13 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+<<<<<<< HEAD
     "expo-file-dl": "^1.1.0",
     "expo-file-system": "^9.2.0",
     "expo-media-library": "^9.2.1",
+=======
+    "expo-file-dl": "^1.0.4",
+>>>>>>> ad76117 (Bump expo-file-dl version)
     "expo-notifications": "^0.7.2",
     "react": "16.13.1",
     "react-native": "0.63.3",
