@@ -2,7 +2,7 @@
   "name": "example",
   "displayName": "example",
   "expo": {
-    "amdroid": {
+    "android": {
       "useNextNotificationsApi": true
     }
   }
