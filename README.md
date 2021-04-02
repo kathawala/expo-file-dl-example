@@ -6,5 +6,6 @@ You can clone this repo and open the app on your device/emulator
 ```bash
 git clone https://github.com/kathawala/expo-file-dl-example.git
 cd expo-file-dl-example
+yarn install
 expo start
 ```
