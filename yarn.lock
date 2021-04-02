@@ -3730,8 +3730,10 @@ expo-error-recovery@~1.4.0:
   dependencies:
     fbjs "1.0.0"
 
-expo-file-dl@../expo-file-dl:
-  version "1.0.4"
+expo-file-dl@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/expo-file-dl/-/expo-file-dl-1.1.0.tgz#e0f770c478a69646ac70016bb94585ecbd57b499"
+  integrity sha512-/+0ikuETT0sFxmZGAMeN1X+tUqaVIBsliG/Tl6l118+Vak2cm+dGArfpEahFXHuZgruXR0q9CK8pRruupGQouQ==
   dependencies:
     expo-file-system "^10.0.0"
     expo-media-library "^11.0.0"
