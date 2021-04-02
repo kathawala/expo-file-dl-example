@@ -103,10 +103,17 @@ export default function App() {
           // };
           // await downloadToFolder(uri, filename, "Download", channelId, { notification: "custom" }, customNotifInput);
 
+<<<<<<< HEAD
           // ****************
           // no notifications
           // ****************
           // await downloadToFolder(uri, filename, "Download", channelId, { notification: "none" });
+=======
+        // ****************
+        // no notifications
+        // ****************
+        // await downloadToFolder(uri, filename, "Download", channelId, { notification: "none" });
+>>>>>>> 95b8ed2 (Update bare app)
 
           // *******
           // default

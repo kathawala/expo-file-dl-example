@@ -1,4 +1,6 @@
 package com.farhansayshi.expofiledlexample;
+// com.myapp should be your package name
+import com.farhansayshi.expofiledlexample.generated.BasePackageList;
 
 import android.app.Application;
 import android.content.Context;
