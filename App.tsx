@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import * as Notifications from "expo-notifications";
 import * as Permissions from "expo-permissions";
 import React, { useEffect, useState } from "react";
-import { Button, StyleSheet, TextInput, View } from "react-native";
+import { Button, StyleSheet, TextInput, View, Text } from "react-native";
 import {
   AndroidImportance,
   AndroidNotificationVisibility,
@@ -25,6 +25,7 @@ const channelId = "DownloadInfo";
 export default function App() {
   const [uri, setUri] = useState("");
   const [filename, setFilename] = useState("");
+  const [downloadProgress, setDownloadProgress] = useState("0%");
 
   async function setNotificationChannel() {
     const loadingChannel: NotificationChannel | null = await Notifications.getNotificationChannelAsync(
@@ -64,6 +65,17 @@ export default function App() {
   async function getNotificationPermissions() {
     await Permissions.askAsync(Permissions.NOTIFICATIONS);
   }
+
+  const downloadProgressUpdater = ({
+    totalBytesWritten,
+    totalBytesExpectedToWrite,
+  }: {
+    totalBytesWritten: number;
+    totalBytesExpectedToWrite: number;
+  }) => {
+    const pctg = 100 * (totalBytesWritten / totalBytesExpectedToWrite);
+    setDownloadProgress(`${pctg.toFixed(0)}%`);
+  };
 
   useEffect(() => {
     getMediaLibraryPermissions();
@@ -111,8 +123,16 @@ export default function App() {
           // *******
           // default
           // *******
-          await downloadToFolder(uri, filename, "Download", channelId);
+          await downloadToFolder(uri, filename, "Download", channelId, {
+            downloadProgressCallback: downloadProgressUpdater,
+          });
         }}
+      />
+
+      <Text style={styles.topMargin}>{downloadProgress}</Text>
+      <Button
+        title="Reset Progress"
+        onPress={() => setDownloadProgress("0%")}
       />
     </View>
   );
@@ -124,5 +144,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+  },
+  topMargin: {
+    marginTop: 30,
   },
 });
