@@ -113,12 +113,12 @@ export default function App() {
           //   finished: { title: "Custom title 2", body: 'Custom body 2', color: '#004a00' },
           //   error: { title: "Custom title 3", body: 'Custom body 3', color: '#810002' }
           // };
-          // await downloadToFolder(uri, filename, "Download", channelId, { notification: "custom" }, customNotifInput);
+          // await downloadToFolder(uri, filename, "Download", channelId, { notificationType: { notification: "custom" }, notificationContent: customNotifInput });
 
           // ****************
           // no notifications
           // ****************
-          // await downloadToFolder(uri, filename, "Download", channelId, { notification: "none" });
+          // await downloadToFolder(uri, filename, "Download", channelId, { notificationType: { notification: "none" }});
 
           // *******
           // default
